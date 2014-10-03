@@ -19,16 +19,16 @@
 # set autoindent
 
 ## Backup files to filename~.
-# set backup
+set backup
 
 ## The directory to put unique backup files in.
-# set backupdir ""
+set backupdir "~/temp"
 
 ## Do backwards searches by default.
 # set backwards
 
 ## Use bold text instead of reverse video text.
-# set boldtext
+set boldtext
 
 ## The characters treated as closing brackets when justifying
 ## paragraphs.  They cannot contain blank characters.  Only closing
@@ -88,10 +88,10 @@ set const
 # set nohelp
 
 ## Don't add newlines to the ends of files.
-# set nonewlines
+set nonewlines
 
 ## Don't wrap text at all.
-# set nowrap
+set nowrap
 
 ## Set operating directory.  nano will not read or write files outside
 ## this directory and its subdirectories.  Also, the current directory
@@ -153,7 +153,7 @@ set smooth
 # set suspend
 
 ## Use this tab size instead of the default; it must be greater than 0.
-set tabsize 4
+set tabsize 3
 
 ## Convert typed tabs to spaces.
 set tabstospaces
@@ -237,7 +237,7 @@ set tabstospaces
 # include "/usr/share/nano/nanorc.nanorc"
 
 ## C/C++
-# include "/usr/share/nano/c.nanorc"
+include "/usr/share/nano/c.nanorc"
 
 ## Makefiles
 # include "/usr/share/nano/makefile.nanorc"
@@ -276,13 +276,13 @@ set tabstospaces
 # include "/usr/share/nano/groff.nanorc"
 
 ## Perl
-# include "/usr/share/nano/perl.nanorc"
+include "/usr/share/nano/perl.nanorc"
 
 ## Python
 include "/usr/share/nano/python.nanorc"
 
 # Ruby
-# include "/usr/share/nano/ruby.nanorc"
+include "/usr/share/nano/ruby.nanorc"
 
 ## Java
 # include "/usr/share/nano/java.nanorc"
@@ -297,7 +297,7 @@ include "/usr/share/nano/python.nanorc"
 # include "/usr/share/nano/ocaml.nanorc"
 
 ## AWK
-# include "/usr/share/nano/awk.nanorc"
+include "/usr/share/nano/awk.nanorc"
 
 ## Assembler
 # include "/usr/share/nano/asm.nanorc"
