@@ -316,3 +316,6 @@ include "/usr/share/nano/conf.nanorc"
 
 ## Octave highlighting
 include "/usr/share/nano/octave.nanorc"
+
+## Markdown highlighting from https://github.com/serialhex/nano-highlight
+include "/usr/share/nano/md.nanorc"
