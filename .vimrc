@@ -39,7 +39,7 @@ set background=dark    " When set to "dark", Vim will try to use colors that loo
                        " try to use colors that look good on a light background.
                        " Any other value is illegal.
 
-# Following line only needed for tmux; skipping while on gvim
+" Following line only needed for tmux; skipping while on gvim
 if !has("gui_running")
    set term=screen-256color
 endif
