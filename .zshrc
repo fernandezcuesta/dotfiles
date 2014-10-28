@@ -22,7 +22,7 @@ alias vpnoff='ssh vpnrouter vpnc-disconnect'
 alias kill='kill -9'
 
 export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/
-export TERM=xterm-256color
+#export TERM=xterm-256color #disabled due to output jumbles (PgUp/PgDn) with nano, ncmpcpp, ...
 export EDITOR=/usr/bin/vim
 export knock_sequence="20121 20119 20120"
 myproxy='http://eu-vsip-dpx01.intinfra.com:3128'
