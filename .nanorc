@@ -22,7 +22,7 @@
 set backup
 
 ## The directory to put unique backup files in.
-set backupdir "~/temp"
+set backupdir "/tmp"
 
 ## Do backwards searches by default.
 # set backwards
