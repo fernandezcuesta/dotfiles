@@ -5,7 +5,11 @@ ZSH=/usr/share/oh-my-zsh/
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="alanpeabody"
+if [[ $EUID -ne 0 ]]; then
+   ZSH_THEME="alanpeabody"
+else
+   ZSH_THEME="candy"
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -132,7 +136,20 @@ bindkey -M menuselect 'k' vi-up-line-or-history   # up
 bindkey -M menuselect 'l' vi-forward-char         # right
 bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
+
 source /usr/bin/virtualenvwrapper_lazy.sh
 
 setopt auto_menu
 setopt nocaseglob
+
+if [[ $EUID -eq 0 ]]; then alsi -a -u; fi
