@@ -115,3 +115,18 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Insert 3 spaces instead of TAB
+set expandtab     " insert spaces when hitting TAB
+set softtabstop=3
+set shiftwidth=3  " operation >> indents 3 columns; << unindents 3 columns
+set tabstop=3     " hard tab
+set shiftround    "round indent to multiple of 'shiftwidth'
+
+" bring vim-ipython the ability to use Ctrl-S (which is used for flow control)
+let g:ipy_perform_mappings=0
+
+" Orange cursor when in insert mode, back to blue otherwise
+let &t_SI = "\<Esc>]12;orange\x7"
+let &t_EI = "\<Esc>]12;blue\x7"
+silent !echo -ne "\033]12;blue\007"
+autocmd VimLeave * silent !echo -ne "\033]112\007"
