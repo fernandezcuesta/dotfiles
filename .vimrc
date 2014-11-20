@@ -45,8 +45,8 @@ if !has("gui_running")
 endif
 
 set t_Co=256           " Enable 256-color mode
-"let g:solarized_termcolors=256
-colorscheme desert  " Set default theme
+let g:solarized_termcolors=256
+colorscheme solarized  " Set default theme
 
 filetype off           " Required by vundle
 
@@ -75,7 +75,7 @@ autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd FileType c,cpp,eruby,html,java,javascript,php,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Highlight too-long lines
-autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
+autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%80v.*/
 highlight LineLengthError ctermbg=DarkBlue guibg=DarkBlue ctermfg=black
 autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 
@@ -93,10 +93,19 @@ set statusline+=%-40f\ " relative path
 set statusline+=%= " seperate between right- and left-aligned
 set statusline+=%1*%y%*%*\ " file type
 set statusline+=%10(L(%l/%L)%)\ " line
-set statusline+=%2(C(%v/125)%)\ " column
+set statusline+=%2(C(%v/80)%)\ " column
 set statusline+=%P " percentage of file
 
 
+" Vundle specific
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+call vundle#end()            " required by vundle
 filetype plugin indent on    " required by vundle
 
 

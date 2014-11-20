@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -24,7 +25,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -54,6 +55,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Path to zsh cache
+zstyle ':completion::complete:*' cache-path ~/.cache/zsh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -89,9 +93,7 @@ alias open="xdg-open"
 alias vpn="ssh vpnrouter vpnc"
 alias vpnoff='ssh vpnrouter vpnc-disconnect'
 alias kill='kill -9'
-alias build_blog="cd ~/git/blog; git add .; git commit -am 'Latest build.; git push; 'jekyll build;cp -r ~/git/blog/_site/* ~/git/fernandezcuesta.github.io;cd ~/git/fernandezcuesta.github.io;git add .;git commit -am 'Latest build.';git push"
-
-
+alias build_blog="cd ~/git/blog; git add .; git commit -am 'Latest build.'; git push; jekyll build; cp -r ~/git/blog/_site/* ~/git/fernandezcuesta.github.io; cd ~/git/fernandezcuesta.github.io; git add .; git commit -am 'Latest build.'; git push"
 
 export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/
 #export TERM=screen-256color #disabled due to output jumbles (PgUp/PgDn) with nano, ncmpcpp, ...
