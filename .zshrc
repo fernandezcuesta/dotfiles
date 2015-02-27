@@ -146,11 +146,12 @@ man() {
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
     LESS_TERMCAP_me=$'\E[0m' \
     LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_so=$'\E[30;46m' \
     LESS_TERMCAP_ue=$'\E[0m' \
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
 }
+
 
 source /usr/bin/virtualenvwrapper_lazy.sh
 
@@ -158,3 +159,8 @@ setopt auto_menu
 setopt nocaseglob
 
 if [[ $EUID -eq 0 ]]; then alsi -a -u; fi
+
+
+#temporal fix for oh-my-zsh
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
