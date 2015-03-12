@@ -28,7 +28,7 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 #COMPLETION_WAITING_DOTS="true"
@@ -95,7 +95,7 @@ alias vpnoff='ssh vpnrouter vpnc-disconnect'
 alias kill='kill -9'
 alias build_blog="cd ~/git/blog; git add .; git commit -am 'Latest build.'; git push; jekyll build; cp -r ~/git/blog/_site/* ~/git/fernandezcuesta.github.io; cd ~/git/fernandezcuesta.github.io; git add .; git commit -am 'Latest build.'; git push"
 
-export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/
+export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/ruby/2.2.0/bin/
 #export TERM=screen-256color #disabled due to output jumbles (PgUp/PgDn) with nano, ncmpcpp, ...
 export EDITOR=/usr/bin/vim
 export WORKON_HOME=/data/virtualenv
@@ -164,3 +164,13 @@ if [[ $EUID -eq 0 ]]; then alsi -a -u; fi
 #temporal fix for oh-my-zsh
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
+
+
+if [[ -z "$TMUX" ]] ;then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
