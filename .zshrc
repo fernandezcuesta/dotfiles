@@ -141,6 +141,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history   # up
 bindkey -M menuselect 'l' vi-forward-char         # right
 bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 
+# Coloured manpages
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
@@ -169,8 +170,8 @@ unset GREP_OPTIONS
 if [[ -z "$TMUX" ]] ;then
     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
-        tmux new-session
+        tmux -2 new-session
     else
-        tmux attach-session -t "$ID" # if available attach to it
+        tmux -2 attach-session -t "$ID" # if available attach to it
     fi
 fi

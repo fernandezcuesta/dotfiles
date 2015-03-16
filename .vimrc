@@ -33,7 +33,8 @@ set smartcase          " Override the 'ignorecase' option if the search pattern
                        " contains upper case characters.
 set ruler              " Show the line and column number of the cursor position,
                        " separated by a comma.
- 
+set cursorline         " Highlight cursor's line
+
 set background=dark    " When set to "dark", Vim will try to use colors that look
                        " good on a dark background. When set to "light", Vim will
                        " try to use colors that look good on a light background.
@@ -115,18 +116,40 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Insert 3 spaces instead of TAB
+" Insert 4 spaces instead of TAB
 set expandtab     " insert spaces when hitting TAB
-set softtabstop=3
-set shiftwidth=3  " operation >> indents 3 columns; << unindents 3 columns
-set tabstop=3     " hard tab
+set softtabstop=4
+set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+set tabstop=4     " hard tab
 set shiftround    "round indent to multiple of 'shiftwidth'
 
 " bring vim-ipython the ability to use Ctrl-S (which is used for flow control)
 let g:ipy_perform_mappings=0
 
-" Orange cursor when in insert mode, back to blue otherwise
-let &t_SI = "\<Esc>]12;orange\x7"
-let &t_EI = "\<Esc>]12;blue\x7"
-silent !echo -ne "\033]12;blue\007"
-autocmd VimLeave * silent !echo -ne "\033]112\007"
+
+
+" Taken from Arch wiki (https://wiki.archlinux.org/index.php/Vim/.vimrc)
+set textwidth=79    " Maximum width of text that is being inserted. A longer
+                    " line will be broken after white space to get this width.
+set formatoptions=c,q,r,t " This is a sequence of letters which describes how
+                    " automatic formatting is to be done.
+                    "
+                    " letter    meaning when present in 'formatoptions'
+                    " ------    ---------------------------------------
+                    " c         Auto-wrap comments using textwidth, inserting
+                    "           the current comment leader automatically.
+                    " q         Allow formatting of comments with "gq".
+                    " r         Automatically insert the current comment leader
+                    "           after hitting <Enter> in Insert mode. 
+                    " t         Auto-wrap text using textwidth (does not apply
+                    "           to comments)
+
+set wildmenu        " Show a menu for autocomplete (i.e. :e <TAB>)
+
+
+" Change cursor color with xfce4-terminal (http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes)
+if has("autocmd")
+  au InsertEnter * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#dc0000/' ~/.config/xfce4/terminal/terminalrc"
+  au InsertLeave * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' ~/.config/xfce4/terminal/terminalrc"
+  au VimLeave * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' ~/.config/xfce4/terminal/terminalrc"
+endif
