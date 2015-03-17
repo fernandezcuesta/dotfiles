@@ -166,8 +166,7 @@ if [[ $EUID -eq 0 ]]; then alsi -a -u; fi
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
-
-if [[ -z "$TMUX" ]] ;then
+if [[ $EUID -ne 0 ]] && [[ -z "$TMUX" ]] ;then
     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
         tmux -2 new-session
