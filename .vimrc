@@ -148,8 +148,10 @@ set wildmenu        " Show a menu for autocomplete (i.e. :e <TAB>)
 
 
 " Change cursor color with xfce4-terminal (http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes)
-if has("autocmd")
-  au InsertEnter * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#dc0000/' ~/.config/xfce4/terminal/terminalrc"
-  au InsertLeave * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' ~/.config/xfce4/terminal/terminalrc"
-  au VimLeave * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' ~/.config/xfce4/terminal/terminalrc"
+" Update: full path required by vim while invoked from virsh (i.e. `edit vm`)
+
+if !has("gui_running") && has("autocmd")
+  au InsertEnter * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#dc0000/' /home/fernandezjm/.config/xfce4/terminal/terminalrc"
+  au InsertLeave * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' /home/fernandezjm/.config/xfce4/terminal/terminalrc"
+  au VimLeave * silent execute "!sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' /home/fernandezjm/.config/xfce4/terminal/terminalrc"
 endif
