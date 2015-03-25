@@ -154,19 +154,20 @@ man() {
 }
 
 
-source /usr/bin/virtualenvwrapper_lazy.sh
+[[ -f /usr/bin/virtualenvwrapper_lazy.sh ]] && source /usr/bin/virtualenvwrapper_lazy.sh
 
 setopt auto_menu
 setopt nocaseglob
 
-if [[ $EUID -eq 0 ]]; then alsi -a -u; fi
+which alsi &>/dev/null
+if [[ $? -eq 0 ]] && [[ $EUID -eq 0 ]]; then alsi -a -u; fi
 
 
 #temporal fix for oh-my-zsh
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
-if [[ $EUID -ne 0 ]] && [[ -z "$TMUX" ]] ;then
+if [[ -z "$TMUX" ]] && [[ $TERM != screen* ]] ;then
     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
         tmux -2 new-session
