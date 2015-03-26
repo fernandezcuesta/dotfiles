@@ -3,9 +3,9 @@ Description=Dropbox as a systemd service
 After=xorg.target
 
 [Service]
-ExecStart=$HOME/.dropbox-dist/dropboxd
+ExecStart=/home/fernandezjm/.dropbox-dist/dropboxd
 ExecReload=/bin/kill -HUP $MAINPID
-Environment=DISPLAY=%i
+Environment=DISPLAY=:0
 
 [Install]
 WantedBy=default.target
