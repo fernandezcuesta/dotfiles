@@ -93,7 +93,6 @@ alias open="xdg-open"
 alias vpn="ssh vpnrouter vpnc"
 alias vpnoff='ssh vpnrouter vpnc-disconnect'
 alias kill='kill -9'
-alias build_blog="cd ~/git/blog; git add .; git commit -am 'Latest build.'; git push; jekyll build; cp -r ~/git/blog/_site/* ~/git/fernandezcuesta.github.io; cd ~/git/fernandezcuesta.github.io; git add .; git commit -am 'Latest build.'; git push"
 
 export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/ruby/2.2.0/bin/
 #export TERM=screen-256color #disabled due to output jumbles (PgUp/PgDn) with nano, ncmpcpp, ...
