@@ -1,0 +1,17 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Anaconda",
+		"GitGutter",
+		"Package Control",
+		"Pylinter",
+		"SideBarEnhancements",
+		"SublimeLinter-pylint",
+		"SublimeREPL",
+		"Theme - Flatland"
+	]
+}
