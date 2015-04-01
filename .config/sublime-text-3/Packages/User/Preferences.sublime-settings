@@ -1,6 +1,6 @@
 {
 	"auto_complete": true,
-	"caret_style": "solid",
+	"caret_style": "phase",
 	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
@@ -11,7 +11,8 @@
 		"*.pyc"
 	],
 	"find_selected_text": true,
-	"fold_buttons": false,
+	"fold_buttons": true,
+	"fade_fold_buttons": false,
 	"folder_exclude_patterns":
 	[
 		".git",
@@ -59,6 +60,7 @@
 	"scroll_past_end": false,
 	"show_full_path": true,
 	"show_minimap": false,
+	"bold_folder_labels": true,
 	"tab_size": 4,
 	"theme": "Flatland Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,

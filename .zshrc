@@ -99,7 +99,7 @@ export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/
 export EDITOR=/usr/bin/vim
 export WORKON_HOME=/data/virtualenv
 export knock_sequence="20121 20119 20120"
-myproxy='http://eu-vsip-dpx01.intinfra.com:3128'
+myproxy='http://ng-dpx01.intinfra.com:3128'
 #myproxy='http://proxyinternet.tesa:8080'
 
 
