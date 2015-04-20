@@ -46,8 +46,7 @@ if !has("gui_running")
 endif
 
 set t_Co=256           " Enable 256-color mode
-let g:solarized_termcolors=256
-colorscheme solarized  " Set default theme
+colorscheme desert
 
 filetype off           " Required by vundle
 
