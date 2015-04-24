@@ -53,6 +53,7 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -157,6 +158,8 @@ man() {
 
 setopt auto_menu
 setopt nocaseglob
+setopt HIST_IGNORE_DUPS
+setopt completealiases
 
 which alsi &>/dev/null
 if [[ $? -eq 0 ]] && [[ $EUID -eq 0 ]]; then alsi -a -u; fi
