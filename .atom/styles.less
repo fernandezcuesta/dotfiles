@@ -1,4 +1,10 @@
+@redish: #a12;
+
 atom-text-editor::shadow .wrap-guide {
   width: 8px;
-  background-color: #a12;
+  background-color: @redish;
+ }
+ atom-text-editor::shadow atom-text-editor-minimap::shadow .minimap-visible-area {
+   background-color: @redish;
+   opacity: .5;
  }
