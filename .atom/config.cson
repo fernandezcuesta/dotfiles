@@ -1,0 +1,26 @@
+"*":
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-light-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+    showInvisibles: true
+    showIndentGuide: true
+    tabLength: 4
+  linter:
+    showErrorTabLine: true
+  fonts: {}
+  "linter-pylint":
+    rcFile: "~/.pylintrc"
+    executable: "/usr/bin/pylint"
+  "linter-flake8":
+    maxLineLength: 80
+  "one-light-ui": {}
+  "status-bar": {}
+  "python-jedi":
+    enablePython2: true
+  "autocomplete-python": {}
