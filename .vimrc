@@ -130,6 +130,7 @@ let g:ipy_perform_mappings=0
 " Taken from Arch wiki (https://wiki.archlinux.org/index.php/Vim/.vimrc)
 set textwidth=79    " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
+set colorcolumn=70  " Draw a vertical line on column 79
 set formatoptions=c,q,r,t " This is a sequence of letters which describes how
                     " automatic formatting is to be done.
                     "
