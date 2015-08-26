@@ -13,6 +13,7 @@
     tabLength: 4
   linter:
     showErrorTabLine: true
+    showErrorPanel: false
   fonts: {}
   "linter-pylint":
     rcFile: "~/.pylintrc"
@@ -24,3 +25,11 @@
   "python-jedi":
     enablePython2: true
   "autocomplete-python": {}
+  minimap: {}
+  "sync-settings":
+    personalAccessToken: "54ebb1fc8c985fc4f80778c933ccbfd8a435f87c"
+    gistId: "5fa650387ce88683484b"
+    _analyticsUserId: "ac0c632d-cb71-4fd5-a9e3-ce5041964947"
+    _lastBackupHash: "46ee0a9b3c6d89bd58af38849e1c145c35a25a10"
+  "exception-reporting":
+    userId: "0d3c4e30-bc44-92ba-1bb7-1b00a1a03a2d"
