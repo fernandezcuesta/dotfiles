@@ -94,14 +94,17 @@ alias open="xdg-open"
 alias vpn="ssh vpnrouter vpnc"
 alias vpnoff='ssh vpnrouter vpnc-disconnect'
 alias kill='kill -9'
-
-export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/ruby/2.2.0/bin/
+export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/ruby/2.2.0/bin/:/usr/local/heroku/bin
 #export TERM=screen-256color #disabled due to output jumbles (PgUp/PgDn) with nano, ncmpcpp, ...
 export EDITOR=/usr/bin/vim
 export WORKON_HOME=/data/virtualenv
 export knock_sequence="20121 20119 20120"
-myproxy='http://ng-dpx01.intinfra.com:3128'
-#myproxy='http://proxyinternet.tesa:8080'
+myproxy='http://ng-dpx01.intinfra.com:3128' # 'http://proxyinternet.tesa:8080'
+
+# Enable syntax highlighting with less
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
 
 
 function proxy(){
