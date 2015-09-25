@@ -1,17 +1,12 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
-		"All Autocomplete",
+		"1337 Color Scheme",
 		"Anaconda",
-		"GitGutter",
-		"Package Control",
-		"Pylinter",
-		"SideBarEnhancements",
-		"SublimeLinter-pylint",
-		"SublimeREPL",
-		"Theme - Flatland"
+		"Package Control"
 	]
 }
