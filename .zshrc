@@ -1,16 +1,22 @@
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
-
+export ZSH
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 if [[ $EUID -ne 0 ]]; then
-   ZSH_THEME="alanpeabody"
+   ZSH_THEME="agnoster"
 else
    ZSH_THEME="candy"
 fi
+
+# Powerline
+#if [[ -r /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#    source /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+#fi
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +59,7 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -95,14 +101,17 @@ alias open="xdg-open"
 alias vpn="ssh vpnrouter vpnc"
 alias vpnoff='ssh vpnrouter vpnc-disconnect'
 alias kill='kill -9'
-
-export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/ruby/2.2.0/bin/
+export PATH=$PATH:/home/fernandezjm/.gem/ruby/2.1.0/bin/:/home/fernandezjm/.gem/ruby/2.2.0/bin/:/usr/local/heroku/bin
 #export TERM=screen-256color #disabled due to output jumbles (PgUp/PgDn) with nano, ncmpcpp, ...
 export EDITOR=/usr/bin/vim
 export WORKON_HOME=/data/virtualenv
 export knock_sequence="20121 20119 20120"
-myproxy='http://ng-dpx01.intinfra.com:3128'
-#myproxy='http://proxyinternet.tesa:8080'
+myproxy='http://ng-dpx01.intinfra.com:3128' # 'http://proxyinternet.tesa:8080'
+
+# Enable syntax highlighting with less
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
 
 
 function proxy(){
@@ -171,14 +180,10 @@ alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
 if [[ -z "$TMUX" ]] && [[ $TERM != screen* ]] ;then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    ID="`tmux ls 2>/dev/null | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
         tmux -2 new-session
     else
         tmux -2 attach-session -t "$ID" # if available attach to it
     fi
 fi
-
-# syntax highlight for less
-export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R '

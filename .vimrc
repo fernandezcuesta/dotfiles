@@ -46,7 +46,7 @@ if !has("gui_running")
 endif
 
 set t_Co=256           " Enable 256-color mode
-colorscheme desert
+colorscheme vendetta
 
 filetype off           " Required by vundle
 
@@ -147,11 +147,5 @@ set formatoptions=c,q,r,t " This is a sequence of letters which describes how
 set wildmenu        " Show a menu for autocomplete (i.e. :e <TAB>)
 
 
-" Change cursor color with xfce4-terminal (http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes)
-" Update: full path required by vim while invoked from virsh (i.e. `edit vm`)
-
-if !has("gui_running") && has("autocmd")
-  au InsertEnter * silent execute "!xfcerc=$(eval echo ~/.config/xfce4/terminal/terminalrc); if [[ -f $xfcerc ]]; then sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#dc0000/' $xfcerc; fi"
-  au InsertLeave * silent execute "!xfcerc=$(eval echo ~/.config/xfce4/terminal/terminalrc); if [[ -f $xfcerc ]]; then sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' $xfcerc; fi"
-  au VimLeave * silent execute "!xfcerc=$(eval echo ~/.config/xfce4/terminal/terminalrc); if [[ -f $xfcerc ]]; then sed -i.bak -re 's/(ColorCursor=).*$/\\1\\#0000dc/' $xfcerc; fi"
-endif
+" Powerline support
+set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
