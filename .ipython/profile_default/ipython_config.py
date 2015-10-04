@@ -1,3 +1,5 @@
+import sys
+
 # Configuration file for ipython.
 
 c = get_config()
@@ -548,6 +550,7 @@ c = get_config()
 # starts.
 # c.StoreMagics.autorestore = False
 
-c.InteractiveShellApp.extensions = [
-    'powerline.bindings.ipython.post_0_11'
-]
+if not hasattr(sys, 'real_prefix'):  # Running outside a virtualenv
+    c.InteractiveShellApp.extensions = [
+        'powerline.bindings.ipython.post_0_11'
+    ]
