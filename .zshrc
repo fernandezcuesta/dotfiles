@@ -13,8 +13,8 @@ else
 fi
 
 # Powerline
-#if [[ -r /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-#    source /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+#if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#    source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 #fi
 
 
@@ -56,10 +56,11 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+
+# zsh-syntax-highlighting should go in the last position
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
