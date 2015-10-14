@@ -171,6 +171,7 @@ setopt auto_menu
 setopt nocaseglob
 setopt HIST_IGNORE_DUPS
 setopt completealiases
+setopt interactivecomments
 
 which alsi &>/dev/null
 if [[ $? -eq 0 ]] && [[ $EUID -eq 0 ]]; then alsi -a -u; fi
